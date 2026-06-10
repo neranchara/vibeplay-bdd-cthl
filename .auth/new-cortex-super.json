@@ -1,0 +1,55 @@
+{
+  "cookies": [
+    {
+      "name": "AUTH_SESSION_ID",
+      "value": "ZGM5YTVkODYtODQ5NS05YjgyLTA2ODAtZTIzZDA4MjUzYmU5Ll8ybkI0VTdsVy02NHgyTzdhMU1WVjFDZUVzR2haTl9HZGttS1QxM21PT2JKekVxNEdpVzctUXgzTGhfWWVPLXZzVlNPNXFOakhzMHAyUHNaY1h5UWlB",
+      "domain": "id-dev-x.cortexcloud.co",
+      "path": "/realms/cortex/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "KC_AUTH_SESSION_HASH",
+      "value": "hOIWethM5lQDgsXC0pqGiJAtAFwn4KfQEJ0EZP0hrwI",
+      "domain": "id-dev-x.cortexcloud.co",
+      "path": "/realms/cortex/",
+      "expires": 1781100326.994825,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "KEYCLOAK_IDENTITY",
+      "value": "eyJhbGciOiJIUzUxMiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICJjMWUxMDc5NS1jMzQ0LTRjZWEtOGUyNi01ZmExZmVhN2MyMGIifQ.eyJleHAiOjE4MTI2MzYyNjcsImlhdCI6MTc4MTEwMDI2NywianRpIjoiMmI2MGIyMzQtN2NlMy02MmFmLTk5NDYtZjU1ZWM2ZjBlNTQyIiwiaXNzIjoiaHR0cHM6Ly9pZC1kZXYteC5jb3J0ZXhjbG91ZC5jby9yZWFsbXMvY29ydGV4Iiwic3ViIjoiNDMyODIwZGYtOWRiYy00YjdjLTlmY2YtYTY1M2NlNzgyMjQ3IiwidHlwIjoiU2VyaWFsaXplZC1JRCIsInNpZCI6ImRjOWE1ZDg2LTg0OTUtOWI4Mi0wNjgwLWUyM2QwODI1M2JlOSIsInN0YXRlX2NoZWNrZXIiOiJERHUxcmNnT0xoRzhmeV9WMDJDVm4yX3RMT0dmS1Bic0pUZFV1Z2lKQlhRIn0.vU2iIQ_6Hoee-18A21125Uh8sA1tdygVmcCRaiErblvathrrSS5v81l5pMWFA6kUMFvB_KOHf-bTJrQTzHcngQ",
+      "domain": "id-dev-x.cortexcloud.co",
+      "path": "/realms/cortex/",
+      "expires": -1,
+      "httpOnly": true,
+      "secure": false,
+      "sameSite": "Lax"
+    },
+    {
+      "name": "KEYCLOAK_SESSION",
+      "value": "hOIWethM5lQDgsXC0pqGiJAtAFwn4KfQEJ0EZP0hrwI",
+      "domain": "id-dev-x.cortexcloud.co",
+      "path": "/realms/cortex/",
+      "expires": 1812636267.249926,
+      "httpOnly": false,
+      "secure": false,
+      "sameSite": "Lax"
+    }
+  ],
+  "origins": [
+    {
+      "origin": "https://dev-x.cortexcloud.co",
+      "localStorage": [
+        {
+          "name": "i18nextLng",
+          "value": "th"
+        }
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
-# Cortex Cloud BDD Automation Test Setup
+# VibePlay BDD CTHL (Automated Tests for Cortex - HLab)
 
-โปรเจกต์ทดสอบอัตโนมัติด้วย Playwright นี้ได้รับการปรับโครงสร้างให้รองรับแนวคิด **BDD (Behavior-Driven Development)** แบบดั้งเดิม (Given-When-Then) และ**แยกทรัพยากรการทดสอบทั้งหมดตามรายไซต์ (Site-Separation)** สำหรับทั้ง 4 ไซต์: **New Cortex**, **TMH**, **SBH**, และ **NUH** อย่างสมบูรณ์แบบ
+โปรเจกต์ทดสอบอัตโนมัติด้วย Playwright นี้ได้รับการปรับโครงสร้างภายใต้ชื่อ **vibeplay-bdd-cthl** เพื่อทดสอบระบบของโปรดักต์ **Cortex** ของทางบริษัท **HLab** โดยรองรับแนวคิด **BDD (Behavior-Driven Development)** แบบดั้งเดิม (Given-When-Then) และ**แยกทรัพยากรการทดสอบทั้งหมดตามรายไซต์ (Site-Separation)** สำหรับทั้ง 4 ไซต์: **New Cortex**, **TMH**, **SBH**, และ **NUH** อย่างสมบูรณ์แบบ
 
 ## โครงสร้างโปรเจกต์ (Project Structure)
 

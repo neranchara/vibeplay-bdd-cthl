@@ -1,13 +1,13 @@
 import { test, expect } from '@playwright/test';
-import { LoginSteps } from '../../steps/new-cortex/login.steps';
-import { getUsersForRole } from '../../utils/user-roles';
+import { LoginSteps } from '../../steps/new-cortex/login/login.steps';
+import { getUsersForRole } from '../../helpers/utils/user-roles';
 import * as fs from 'fs';
 
 test('Robust Scrape Medication Master DOM', async ({ page }) => {
   test.setTimeout(300000); // 5 minutes timeout
 
   const users = getUsersForRole(undefined, 'new-cortex');
-  const user = users.find(u => u.username === 'user1') || users[0];
+  const user = users.find((u: any) => u.username === 'user1') || users[0];
   
   const steps = new LoginSteps(page);
   await steps.givenUserIsOnLoginPage();
@@ -27,7 +27,7 @@ test('Robust Scrape Medication Master DOM', async ({ page }) => {
     const pharmacyCard = page.locator('div').filter({ hasText: /^ห้องยา$/ }).first();
     await pharmacyCard.waitFor({ state: 'visible', timeout: 30000 });
     await pharmacyCard.click();
-  } catch (e) {
+  } catch (e: any) {
     console.log('Could not click ห้องยา card', e.message);
   }
   
@@ -55,7 +55,7 @@ test('Robust Scrape Medication Master DOM', async ({ page }) => {
             try {
                 const text = await options.nth(i).innerText();
                 console.log(`Option ${i}: "${text}"`);
-            } catch (err) {
+            } catch (err: any) {
                 console.log(`Option ${i} error:`, err.message);
             }
         }
@@ -72,9 +72,9 @@ test('Robust Scrape Medication Master DOM', async ({ page }) => {
             await roomOption.click();
             console.log('Selected "ห้องยา A" successfully.');
             selectedOption = true;
-        } catch (errOption) {
+         } catch (errOption: any) {
             console.log('Could not select "ห้องยา A", trying "ห้องยาชั้น 1"...', errOption.message);
-        }
+         }
 
         if (!selectedOption) {
             try {
@@ -85,7 +85,7 @@ test('Robust Scrape Medication Master DOM', async ({ page }) => {
                 await roomOption.click();
                 console.log('Selected "ห้องยาชั้น 1" successfully.');
                 selectedOption = true;
-            } catch (errOption2) {
+            } catch (errOption2: any) {
                 console.log('Could not select "ห้องยาชั้น 1", trying to press Enter...', errOption2.message);
                 await selectBox.press('Enter');
             }
@@ -100,7 +100,7 @@ test('Robust Scrape Medication Master DOM', async ({ page }) => {
     } else {
         console.log('No location dialog found, proceeding...');
     }
-  } catch (e) {
+  } catch (e: any) {
     console.log('Error handling location dialog:', e.message);
   }
 
@@ -111,7 +111,7 @@ test('Robust Scrape Medication Master DOM', async ({ page }) => {
     await hamburgerBtn.click({ timeout: 10000 });
     console.log('Clicked hamburger menu!');
     await page.waitForTimeout(3000); // Wait for menu animation
-  } catch (e) {
+  } catch (e: any) {
     console.log('Could not click hamburger menu.', e.message);
   }
 
@@ -135,7 +135,7 @@ test('Robust Scrape Medication Master DOM', async ({ page }) => {
     await medMasterMenu.waitFor({ state: 'visible', timeout: 15000 });
     await medMasterMenu.click();
     
-  } catch (e) {
+  } catch (e: any) {
     console.log('Could not navigate to Medication master', e.message);
   }
 
@@ -148,7 +148,7 @@ test('Robust Scrape Medication Master DOM', async ({ page }) => {
     const createBtn = page.locator('button').filter({ hasText: /(Create|เพิ่ม|Create medication master)/i }).first();
     await createBtn.waitFor({ state: 'visible', timeout: 30000 });
     await createBtn.click();
-  } catch (e) {
+  } catch (e: any) {
     console.log("Could not find create button.", e.message);
   }
   
