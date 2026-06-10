@@ -1,35 +1,35 @@
 export const MedicalRecordLocators = {
-  // iframe selector
+  // ── iframe ────────────────────────────────────────────────────────────────────
   iframe: 'iframe',
 
-  // Search Fields (using data-testid - much more stable!)
-  searchHN: '[data-testid="hn"]',
-  searchName: '[data-testid="name"]',
+  // ── Search fields (inside iframe) ────────────────────────────────────────────
+  searchHN:     '[data-testid="hn"]',
+  searchName:   '[data-testid="name"]',
   searchIDCard: '[data-testid="cid"]',
-  searchPhone: '[data-testid="phoneNumber"]',
-  searchVN: '[data-testid="vn"]',
-  searchAN: '[data-testid="an"]',
-  searchWard: '.ant-select:has-text("วอร์ด")', // Keep as is for now
-  searchDoctor: '.ant-select:has-text("แพทย์")', // Keep as is for now
-  searchZipCode: '[data-testid="postalCode"]',
+  searchPhone:  '[data-testid="phoneNumber"]',
+  searchVN:     '[data-testid="vn"]',
+  searchAN:     '[data-testid="an"]',
+  searchWard:   '.ant-select:has-text("วอร์ด")',
+  searchDoctor: '.ant-select:has-text("แพทย์")',
+  searchZipCode:'[data-testid="postalCode"]',
 
-  // Buttons (using data-testid)
-  searchButton: '[data-testid="search-button"]',
-  clearButton: '[data-testid="clear-button"]',
-  readCardButton: 'button:has-text("อ่านบัตร")',
+  // ── Search action buttons (inside iframe) ─────────────────────────────────────
+  searchButton:           '[data-testid="search-button"]',
+  clearButton:            '[data-testid="clear-button"]',
+  readCardButton:         'button:has-text("อ่านบัตร")',
   createNewPatientButton: '[data-testid="create-patient-button"]',
 
-  // Registration Form (Existing - may need data-testid when implemented)
-  firstNameInput: 'input[placeholder="ชื่อ"]',
-  lastNameInput: 'input[placeholder="นามสกุล"]',
-  idCardInput: 'input[placeholder="รหัสบัตรประชาชน/Passport"]',
-  submitButton: 'button:has-text("บันทึก")',
+  // ── Search results (inside iframe) ────────────────────────────────────────────
+  searchResultTable:  '.ant-table',
+  searchResultRow:    '.ant-table-row',
+  emptyResult:        '.ant-empty, [data-testid="empty-state"]',
 
-  // Tabs
-  activeTab: '[data-testid="tab-trigger-activated"]',
-  deactivatedTab: '[data-testid="tab-trigger-deactivated"]',
+  // ── Sidebar navigation (inside iframe) ───────────────────────────────────────
+  sidebarCollapseBtn: 'button:has([aria-label="menu-fold"]), button:has([aria-label="menu-unfold"])',
 
-  // States
-  idleState: '[data-testid="idle-state"]',
-  patientSearchActive: '[data-testid="patient-search-activate"]'
+  // ── Tabs / States (inside iframe) ────────────────────────────────────────────
+  activeTab:           '[data-testid="tab-trigger-activated"]',
+  deactivatedTab:      '[data-testid="tab-trigger-deactivated"]',
+  idleState:           '[data-testid="idle-state"]',
+  patientSearchActive: '[data-testid="patient-search-activate"]',
 };

@@ -1,4 +1,4 @@
-import { getUsersForRole } from '../utils/user-roles';
+import { getUsersForRole } from '../helpers/utils/user-roles';
 
 // This setup can be used to generate storage states for different users
 // To use this, you would configure it in playwright.config.ts dependencies

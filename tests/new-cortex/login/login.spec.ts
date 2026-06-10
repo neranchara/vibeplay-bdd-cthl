@@ -1,6 +1,6 @@
 import { test } from '@playwright/test';
 import { LoginSteps } from '../../../steps/new-cortex/login/login.steps';
-import { getUsersForRole } from '../../../utils/user-roles';
+import { getUsersForRole } from '../../../helpers/utils/user-roles';
 
 const SITE_NAME = 'new-cortex';
 const selectedUsers = process.env.USER_ROLE
@@ -14,11 +14,14 @@ if (selectedUsers.length === 0) {
   );
 }
 
-test.describe('New Cortex Cloud Login BDD Tests', () => {
+test.describe('Login: New Cortex Cloud', {
+  tag: ['@login', '@page-login'],
+}, () => {
   for (const user of selectedUsers) {
-    test(`Login test for user: ${user.username}`, async ({ page }) => {
+    test(`Login — user: ${user.username}`, {
+      tag: ['@smoke', '@regression'],
+    }, async ({ page }) => {
       const steps = new LoginSteps(page);
-
       await steps.givenUserIsOnLoginPage();
       await steps.whenUserLogsIn(user.username, user.password);
       await steps.thenShouldBeRedirectedToDashboard();

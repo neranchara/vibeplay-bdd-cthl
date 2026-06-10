@@ -1,7 +1,9 @@
 import { test, expect } from '@playwright/test';
 import { LoginPage } from '../../../pages/new-cortex/login/login.page';
-import { getUserByRole } from '../../../utils/user-roles';
-import { setupTokenListener, seedMultiplePatients, assignPatientCoverageViaAPI, PatientOverrides } from '../../../utils/api-helpers';
+import { getUserByRole } from '../../../helpers/utils/user-roles';
+import { setupTokenListener } from '../../../helpers/api/auth.api';
+import { seedMultiplePatients, PatientOverrides } from '../../../helpers/api/patient.api';
+import { assignPatientCoverageViaAPI } from '../../../helpers/api/coverage.api';
 
 interface PatientTestCase {
   name: string;
@@ -163,7 +165,7 @@ test.describe('Dynamic API Seeding Verification', () => {
     await tabReg.click();
     await page.waitForTimeout(2000);
 
-    const frame = page.frameLocator('iframe').first();
+    const frame = page.frameLocator('iframe:first-of-type');
 
     // Click "+ Visit ใหม่" inside the iframe
     console.log('Clicking "+ Visit ใหม่" inside iframe...');

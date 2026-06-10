@@ -1,6 +1,6 @@
-import { test } from '@playwright/test';
+﻿import { test } from '@playwright/test';
 import { LoginSteps } from '../../../steps/sbh/login/login.steps';
-import { getUsersForRole } from '../../../utils/user-roles';
+import { getUsersForRole } from '../../../helpers/utils/user-roles';
 
 const SITE_NAME = 'sbh';
 const selectedUsers = process.env.USER_ROLE

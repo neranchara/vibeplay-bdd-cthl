@@ -20,7 +20,7 @@ export class ClaimRepUploadSteps {
     await test.step(`When upload "${filename}" mocked as "${errorCode}"`, async () => {
       await this.repUploadPage.mockApiResponse(httpStatus, errorCode);
       await this.repUploadPage.uploadFile(
-        path.join(__dirname, '../fixtures', filename)
+        path.join(__dirname, '../../../fixtures', filename)
       );
     });
   }
@@ -29,7 +29,7 @@ export class ClaimRepUploadSteps {
     await test.step(`When upload "${filename}" mocked as success`, async () => {
       await this.repUploadPage.mockApiSuccess();
       await this.repUploadPage.uploadFile(
-        path.join(__dirname, '../fixtures', filename)
+        path.join(__dirname, '../../../fixtures', filename)
       );
     });
   }

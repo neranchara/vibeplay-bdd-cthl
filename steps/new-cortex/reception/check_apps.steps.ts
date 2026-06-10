@@ -1,6 +1,6 @@
-import { Page, test, expect } from '@playwright/test';
+﻿import { Page, test, expect } from '@playwright/test';
 import { LoginPage } from '../../../pages/new-cortex/login/login.page';
-import { getUserByRole } from '../../../utils/user-roles';
+import { getUserByRole } from '../../../helpers/utils/user-roles';
 
 export class CheckAppsSteps {
   private loginPage: LoginPage;

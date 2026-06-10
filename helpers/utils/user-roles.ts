@@ -20,7 +20,7 @@ function getSiteName(site?: string) {
 
 function loadUsers(site?: string): TestUser[] {
   const resolvedSite = getSiteName(site);
-  const path = join(__dirname, '..', 'data', resolvedSite, 'login', 'users.json');
+  const path = join(__dirname, '..', '..', 'data', resolvedSite, 'login', 'users.json');
 
   try {
     return JSON.parse(readFileSync(path, 'utf8')) as TestUser[];

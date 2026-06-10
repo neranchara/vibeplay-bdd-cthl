@@ -1,7 +1,7 @@
-import { Page, test, expect } from '@playwright/test';
+﻿import { Page, test, expect } from '@playwright/test';
 import { LoginPage } from '../../../pages/new-cortex/login/login.page';
 import { AdvanceVisitsPage } from '../../../pages/new-cortex/reception/advance-visits.page';
-import { getUserByRole } from '../../../utils/user-roles';
+import { getUserByRole } from '../../../helpers/utils/user-roles';
 
 export class AdvanceVisitsSteps {
   private loginPage: LoginPage;

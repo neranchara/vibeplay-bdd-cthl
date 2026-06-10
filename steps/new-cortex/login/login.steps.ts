@@ -22,8 +22,10 @@ export class LoginSteps {
 
   async thenShouldBeRedirectedToDashboard() {
     await test.step('Then they should be redirected to the applications page and the dashboard should be visible', async () => {
-      await expect(this.page).toHaveURL(/.*cortex\/apps/);
-      await expect(this.page.locator('.ant-layout-content, .ant-layout-header').first()).toBeVisible();
+      // ต้องไม่อยู่ที่ /cortex/auth/ (Keycloak) หรือ /cortex/welcome อีกต่อไป
+      // แต่ละ role redirect ต่างกัน: cashier→/apps, physician→/opd, nurse→/ward ฯลฯ
+      await expect(this.page).toHaveURL(/\/cortex\/(?!auth|welcome)/, { timeout: 45000 });
+      await expect(this.page.locator('.ant-layout-content, .ant-layout-header').first()).toBeVisible({ timeout: 30000 });
     });
   }
 }

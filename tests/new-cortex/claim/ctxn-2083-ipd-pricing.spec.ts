@@ -1,5 +1,6 @@
 import { test } from '@playwright/test';
 import { ClaimPricingSteps } from '../../../steps/new-cortex/claim/claim-pricing.steps';
+import { loginAs } from '../../../steps/new-cortex/shared/login-helper';
 
 /**
  * CTXN-2083: [Cashier][Pricing] คำนวณราคา / credit / เบิกได้ / เบิกไม่ได้ IPD, ครูเอกชน
@@ -19,24 +20,27 @@ const TEST_DATA = {
   IPD_KRUEKACHON_ID: 'REPLACE_ME',
 };
 
-test.describe('CTXN-2083: IPD Pricing — claim_category, force_tariff, ครูเอกชน Budget', () => {
+test.describe('CTXN-2083: IPD Pricing — claim_category, force_tariff, ครูเอกชน Budget', {
+  tag: ['@claim', '@page-ipd-pricing', '@req-CTXN-2083'],
+}, () => {
   let steps: ClaimPricingSteps;
 
   test.beforeEach(async ({ page }) => {
+    await loginAs(page);
     steps = new ClaimPricingSteps(page);
   });
 
-  test('TC-2083-03: claim_category = D เมื่อใช้ DRG fallback', async () => {
+  test('TC-2083-03: claim_category = D เมื่อใช้ DRG fallback', { tag: ['@regression'] }, async () => {
     await steps.whenOpenIPDAccountTamSitti(TEST_DATA.IPD_DRG_VISIT_ID);
     await steps.thenClaimCategoryShouldBe('D');
   });
 
-  test('TC-2083-04: claim_category = T เมื่อมี per-unit benefit config', async () => {
+  test('TC-2083-04: claim_category = T เมื่อมี per-unit benefit config', { tag: ['@regression'] }, async () => {
     await steps.whenOpenIPDAccountTamSitti(TEST_DATA.IPD_TARIFF_VISIT_ID);
     await steps.thenClaimCategoryShouldBe('T');
   });
 
-  test('TC-2083-05: claim_category column แสดงใน IPD เท่านั้น ไม่แสดงใน OPD', async ({ page }) => {
+  test('TC-2083-05: claim_category column แสดงใน IPD เท่านั้น ไม่แสดงใน OPD', { tag: ['@regression'] }, async () => {
     const accountPage = (steps as any).accountPage;
 
     await steps.whenOpenIPDAccountTamSitti(TEST_DATA.IPD_DRG_VISIT_ID);
@@ -47,18 +51,18 @@ test.describe('CTXN-2083: IPD Pricing — claim_category, force_tariff, คร�
     await steps.thenClaimCategoryColumnIsHidden();
   });
 
-  test('TC-2083-06: force_tariff = true → info icon + tooltip "นอกการประกาศ Tariff"', async () => {
+  test('TC-2083-06: force_tariff = true → info icon + tooltip "นอกการประกาศ Tariff"', { tag: ['@regression'] }, async () => {
     await steps.whenOpenIPDAccountTamSitti(TEST_DATA.IPD_FORCE_TARIFF_ID);
     await steps.thenClaimCategoryShouldBe('T');
     await steps.thenForceTariffIconAndTooltipVisible();
   });
 
-  test('TC-2083-09: ครูเอกชน shared budget — Item A credit=10, Item B credit=0', async () => {
+  test('TC-2083-09: ครูเอกชน shared budget — Item A credit=10, Item B credit=0', { tag: ['@regression'] }, async () => {
     await steps.whenOpenIPDAccountTamSitti(TEST_DATA.IPD_KRUEKACHON_ID);
     await steps.thenKruekachonBudgetAllocatedCorrectly('10', '90', '0');
   });
 
-  test('TC-2083-12: claim_category snapshot คงอยู่หลัง page reload', async () => {
+  test('TC-2083-12: claim_category snapshot คงอยู่หลัง page reload', { tag: ['@regression'] }, async () => {
     await steps.whenOpenIPDAccountTamSitti(TEST_DATA.IPD_DRG_VISIT_ID);
     await steps.thenClaimCategoryPersistsAfterReload();
   });

@@ -1,8 +1,8 @@
-import { Page, test, expect } from '@playwright/test';
+﻿import { Page, test, expect } from '@playwright/test';
 import { LoginPage } from '../../../pages/new-cortex/login/login.page';
 import { AppsPage } from '../../../pages/new-cortex/reception/apps.page';
 import { MedicalRecordPage } from '../../../pages/new-cortex/medical-record/medical-record.page';
-import { getUserByRole } from '../../../utils/user-roles';
+import { getUserByRole } from '../../../helpers/utils/user-roles';
 
 export class MedicalRecordSearchSteps {
   private loginPage: LoginPage;

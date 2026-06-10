@@ -1,5 +1,8 @@
 import { defineConfig, devices } from '@playwright/test';
 
+const isHeaded  = process.env.HEADED  === 'true';
+const slowMo    = parseInt(process.env.SLOWMO  ?? '0', 10);
+
 export default defineConfig({
   testDir: './tests',
   timeout: 60000,
@@ -14,6 +17,10 @@ export default defineConfig({
     video: 'retain-on-failure',
     navigationTimeout: 30000,
     actionTimeout: 10000,
+    headless: !isHeaded,
+    launchOptions: {
+      slowMo,   // SLOWMO=500 ทำให้แต่ละ action ช้าลง 500ms — เห็นชัดขึ้นตอน debug
+    },
     // ใส่ storageState หลัง login ครั้งแรก:
     // storageState: './auth/session.json',
   },
